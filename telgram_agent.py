@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-_
-=======
 """
 Docs-only Telegram Bot
 - Answers ONLY using your local PDFs/Excels/CSVs.
@@ -37,7 +34,9 @@ from openai import OpenAI
 load_dotenv()  # loads variables from .env in current folder
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")  # your Telegram bot token
-DOCS_DIR = os.getenv("DOCS_DIR", "./documents")   # folder for local docs
+# DOCS_DIR = os.getenv("DOCS_DIR", "./documents")   # folder for local docs
+DOCS_DIR = '/home/mh/myapp/documents'
+
 
 client = OpenAI()  # reads OPENAI_API_KEY from .env automatically
 
@@ -282,7 +281,9 @@ def main():
     app.run_polling()
 
 if __name__ == "__main__":
-    main()
-# This is the entry point for the Telegram bot
-# It will start the bot and listen for commands/messages
-# Make sure to set TELEGRAM_BOT_TOKEN and DOCS_DIR in your .env file
+    #main()
+     root = '/home/mh/myapp/documents'
+     t =  discover_files(root)
+     print(t)
+     main()
+
