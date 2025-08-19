@@ -286,7 +286,3 @@ if __name__ == "__main__":
 # This is the entry point for the Telegram bot
 # It will start the bot and listen for commands/messages
 # Make sure to set TELEGRAM_BOT_TOKEN and DOCS_DIR in your .env file
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
