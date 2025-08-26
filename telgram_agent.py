@@ -34,8 +34,9 @@ from openai import OpenAI
 load_dotenv()  # loads variables from .env in current folder
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")  # your Telegram bot token
-# DOCS_DIR = os.getenv("DOCS_DIR", "./documents")   # folder for local docs
-DOCS_DIR = '/home/mh/myapp/documents'
+DOCS_DIR = os.getenv("DOCS_DIR", "./documents")   # folder for local docs
+# DOCS_DIR = '/home/mh/myapp/documents'
+DOCS_DIR =  '/Users/mahdihanifi/Documents/GitHub/Telgram-GPT/documents'
 
 
 client = OpenAI()  # reads OPENAI_API_KEY from .env automatically
@@ -180,6 +181,9 @@ SYSTEM_RULES = (
     "If the answer is not fully supported by the context, reply exactly with: "
     "\"I don't know based on the provided documents.\" "
     "Do not use prior knowledge. Do not guess."
+    "In the csv files, for column description after 5 charter use ***"
+    "In the csv files numeric columns give summary statistics like mean, median, min, max if it requested by user"
+    "take care of spelling mistakes in the question"
 )
 
 def retrieve(query: str, top_k: int = TOP_K):
@@ -282,7 +286,7 @@ def main():
 
 if __name__ == "__main__":
     #main()
-     root = '/home/mh/myapp/documents'
+     root = '/Users/mahdihanifi/Documents/GitHub/Telgram-GPT/documents'
      t =  discover_files(root)
      print(t)
      main()
